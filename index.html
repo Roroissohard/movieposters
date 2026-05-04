@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IS219 Gallery (Project 3)</title>
+
+	<!-- Our CSS File along with Boostrap & Old Font Awesome Icons Styles-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" type='text/css' href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type='text/css' href="css/style.css"/>
+
+	<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE-->
+	
+	<!-- Javascript Framework (e.g., vue.js) (ADD HERE) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js" ></script>
+
+</head>
+
+  <body>
+	<div id="vue_app" class="container">
+
+	    <div class="header">
+
+	      <div class="container">
+	        <h1 id="app_title">{{ title }}</h1>
+	      </div>
+
+	    </div>
+
+
+	    <div class="main">
+
+	      <div class="container">
+
+            <div class="row">
+    	        <div v-for="(movie, index) in movies" class="col-md-6">
+    	            <div class="thumbnail">
+    
+    						<img class="poster" v-bind:src="movie.posters[movie.posterindex]" />
+    						<div class="imageInfo">{{ movie.posterindex }}</div>
+    
+    						<p class="title">{{ movie.title }} ({{ movie.country }})</p>
+    						<p class="score"><i class="fa fa-star" aria-hidden="true"></i> {{ movie.iscore }} </p>
+    						<p class="runtime">Runtime: {{ movie.runtime }}</p>
+    						<p class="released">Released: {{ movie.released }} | Rated: {{ movie.rating }}</p>
+    						<p class="websites">Websites: <a>{{ movie.imdb }}</a> | <a>{{ movie.website }}</a></p>
+    
+    			            <div class="social">
+    			              <p class="likes"><i @click="movie.likes++" class="fa fa-thumbs-up" aria-hidden="true"></i> {{ movie.likes }}</p>
+    			              <p class="dislikes"><i @click="movie.dislikes++" class="fa fa-thumbs-down" aria-hidden="true"></i> {{ movie.dislikes }}</p>
+    			            </div>
+    	            </div>
+    	        </div>
+            </div>
+	      </div>
+	    </div>
+
+	    <div class="footer">
+	      <div class="container">
+			<a id="github" class="btn btn-lg btn-warning">
+				<i class="fa fa-lg fa-github pull-left" aria-hidden="true"></i>{{ owner }} {{ github }}
+	  		</a>
+	      </div>
+	    </div>
+	</div>
+	<script type="text/javascript" src="js/site.js"></script>
+</body>
+</html>
